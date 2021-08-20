@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		EE2FD26C26CD860600C5A80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FD26B26CD860600C5A80D /* AppDelegate.swift */; };
 		EE2FD26E26CD860600C5A80D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FD26D26CD860600C5A80D /* SceneDelegate.swift */; };
-		EE2FD27026CD860600C5A80D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FD26F26CD860600C5A80D /* ViewController.swift */; };
 		EE2FD27326CD860600C5A80D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2FD27126CD860600C5A80D /* Main.storyboard */; };
 		EE2FD27526CD860800C5A80D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE2FD27426CD860800C5A80D /* Assets.xcassets */; };
 		EE2FD27826CD860800C5A80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2FD27626CD860800C5A80D /* LaunchScreen.storyboard */; };
+		EE98BF4826CE9D70005407C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98BF4726CE9D70005407C2 /* ViewController.swift */; };
+		EE9A512826D016A800F335F8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9A512726D016A800F335F8 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE2FD26826CD860600C5A80D /* habitBarUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = habitBarUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2FD26B26CD860600C5A80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE2FD26D26CD860600C5A80D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EE2FD26F26CD860600C5A80D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EE2FD27226CD860600C5A80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE2FD27426CD860800C5A80D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE2FD27726CD860800C5A80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE2FD27926CD860800C5A80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE98BF4726CE9D70005407C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE9A512726D016A800F335F8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,9 @@
 			children = (
 				EE2FD26B26CD860600C5A80D /* AppDelegate.swift */,
 				EE2FD26D26CD860600C5A80D /* SceneDelegate.swift */,
-				EE2FD26F26CD860600C5A80D /* ViewController.swift */,
 				EE2FD27126CD860600C5A80D /* Main.storyboard */,
+				EE9A512726D016A800F335F8 /* CollectionViewCell.swift */,
+				EE98BF4726CE9D70005407C2 /* ViewController.swift */,
 				EE2FD27426CD860800C5A80D /* Assets.xcassets */,
 				EE2FD27626CD860800C5A80D /* LaunchScreen.storyboard */,
 				EE2FD27926CD860800C5A80D /* Info.plist */,
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE2FD27026CD860600C5A80D /* ViewController.swift in Sources */,
+				EE98BF4826CE9D70005407C2 /* ViewController.swift in Sources */,
 				EE2FD26C26CD860600C5A80D /* AppDelegate.swift in Sources */,
+				EE9A512826D016A800F335F8 /* CollectionViewCell.swift in Sources */,
 				EE2FD26E26CD860600C5A80D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
