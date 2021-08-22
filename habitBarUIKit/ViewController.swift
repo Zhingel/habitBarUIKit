@@ -6,10 +6,27 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+    var tasks : [Task] = []
     weak var collectionView: UICollectionView!
-   
+    @IBAction func saveTask(_ sender: UIBarButtonItem) {
+        let alertcontroller = UIAlertController(title: "New Task", message: "add new Task", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) {
+            action in
+            let tf = alertcontroller.textFields?.first
+            if let newTaskTitle = tf?.text {
+                self.saveTask(withTitle: newTaskTitle)
+                self.collectionView.reloadData()
+            } else {return}
+        }
+        alertcontroller.addTextField(configurationHandler: { _ in})
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) 
+        alertcontroller.addAction(saveAction)
+        alertcontroller.addAction(cancelAction)
+        present(alertcontroller, animated: false)
+    }
     override func loadView() {
         super.loadView()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -23,6 +40,40 @@ class ViewController: UIViewController {
         ])
         self.collectionView = collectionView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "toDo", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            tasks = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+
+    }
+    
+    private func saveTask(withTitle toDo: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
+        else {return}
+        
+        let taskObject = Task(entity: entity, insertInto: context)
+        taskObject.toDo = toDo
+        
+        do {
+            try context.save()
+            tasks.append(taskObject)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +89,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return tasks.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CellClass
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 20
+
         
         if indexPath.row == 0 {
         let firstcell = collectionView.dequeueReusableCell(withReuseIdentifier: "firstcell", for: indexPath)
@@ -52,6 +104,7 @@ extension ViewController: UICollectionViewDataSource {
         firstcell.layer.cornerRadius = 20
             return firstcell
         } else {
+            cell.textLabel?.text = tasks[indexPath.row - 1].toDo
             return cell
         }
         

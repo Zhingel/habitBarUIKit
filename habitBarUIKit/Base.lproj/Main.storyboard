@@ -38,6 +38,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2fZ-hL-FS6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ogc-8F-eVW" kind="relationship" relationship="rootViewController" id="xmF-hT-Ta5"/>
                     </connections>
@@ -46,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="76.339285714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Сегодня-->
         <scene sceneID="JPb-2F-Dd4">
             <objects>
                 <viewController id="ogc-8F-eVW" customClass="ViewController" customModule="habitBarUIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,11 +59,89 @@
                         <viewLayoutGuide key="safeArea" id="H72-JR-WRM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jk0-fe-UmO"/>
+                    <navigationItem key="navigationItem" title="Сегодня" id="Jk0-fe-UmO">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="add" id="vOC-86-8yU">
+                            <connections>
+                                <action selector="saveTask:" destination="ogc-8F-eVW" id="Xzb-1J-4rn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="vjl-fD-43g">
+                            <connections>
+                                <segue destination="efN-CU-gLV" kind="showDetail" id="ufg-pR-aRA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2di-Tc-imu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1759" y="76"/>
+        </scene>
+        <!--Создать-->
+        <scene sceneID="e91-pk-gFl">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="1Of-Pw-qzZ" customClass="createNewTask" customModule="habitBarUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FtL-v6-IZw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUC-Ni-uI3">
+                                <rect key="frame" x="42" y="128" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f83-5u-6Op">
+                                <rect key="frame" x="42" y="175" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2k-RD-Tbz">
+                                <rect key="frame" x="42" y="313" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7o-Jg-5lR">
+                                <rect key="frame" x="42" y="250" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGt-Yq-k0T">
+                                <rect key="frame" x="42" y="396" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="56d-kj-7Qx">
+                                <rect key="frame" x="0.0" y="511" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UpT-HE-Oij"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Создать" id="kYX-BN-5hy">
+                        <barButtonItem key="leftBarButtonItem" title="Отменить" id="H8i-TP-TAe">
+                            <color key="tintColor" red="0.35879267889999999" green="0.12248353920000001" blue="0.78377525250000002" alpha="0.93863824500000004" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="vIs-1T-Hsf">
+                            <color key="tintColor" red="0.35879267889999999" green="0.12248353920000001" blue="0.78377525250000002" alpha="0.93863824500000004" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="saveTasks:" destination="1Of-Pw-qzZ" id="9Uf-o6-PA0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="toDoTextField" destination="f83-5u-6Op" id="NZm-7X-0rr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiM-cR-5i9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3544.9275362318845" y="75.669642857142847"/>
         </scene>
         <!--Item-->
         <scene sceneID="cJR-9I-9j2">
@@ -77,6 +158,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVP-e6-CA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693" y="822"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HE0-Yn-Z9M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="efN-CU-gLV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zTw-q3-FHL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Of-Pw-qzZ" kind="relationship" relationship="rootViewController" id="7CD-Q4-1zn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyI-6L-XYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2634.7826086956525" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>
