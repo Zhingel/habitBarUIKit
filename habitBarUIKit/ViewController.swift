@@ -31,7 +31,12 @@ extension ViewController : UICollectionViewDelegateFlowLayout, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! cell
         cell.backgroundColor = .yellow
         cell.layer.cornerRadius = 20.0
-        cell.title.text = "1111111111111"
+        if indexPath.row == 0 {
+            cell.title.text = "1111111111111" }
+        else {
+            cell.title.text = "222222222222"
+            cell.backgroundColor = .green
+        }
         return cell
     }
     
@@ -40,7 +45,11 @@ extension ViewController : UICollectionViewDelegateFlowLayout, UICollectionViewD
         let paddingWidth = sectionInserts.left * (itemsPerRow + 1)
         let availibleWidth = collectionView.frame.width - paddingWidth
         let widthPerItem = availibleWidth/itemsPerRow
-        return CGSize(width: widthPerItem, height: 140)
+        if indexPath.row == 0 {
+            return CGSize(width: widthPerItem, height: 70)
+        } else {
+            return CGSize(width: widthPerItem, height: 140)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
